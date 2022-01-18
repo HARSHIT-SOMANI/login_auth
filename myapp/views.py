@@ -13,28 +13,39 @@ def index(request):
     return render(request,'index.html')
 
 def signup(request):
-    #print('######cvme to sinup')
+    print('######cvme to sinup')
     if request.method=='POST':
+        print('######cvme to sinup1')
         username=request.POST['username']
         lastname=request.POST['lastname']
         firstname=request.POST['firstname']
         email=request.POST['email']
         password1=request.POST['password1']
         password2=request.POST['password2']
-        myuser=User.objects.create_user(username,email,password1)
-        myuser.firstname=firstname
-        myuser.lastname=lastname
-        myuser.save()
-        messages.success(request,'account created')
-        return redirect('signind')
+        if(User.objects.filter(username=username).exists()):
+            print('########################username exits')
+            messages.info(request,'Username taken')
+            return redirect('signupd')
+        elif(User.objects.filter(email=email)):
+            print('########################emil exits')
+            messages.info(request,'email taken')
+            return redirect('signupd')
+        else:
+            print('########################nothin exists')
+            myuser=User.objects.create_user(username,email,password1)
+            myuser.firstname=firstname
+            myuser.lastname=lastname
+            myuser.save()
+            messages.info(request,'account created')
+            return redirect('signind')
     return render(request,'signup.html')
 
 def signin(request):
     #print('#####in sinin function')
     if request.method=='POST':
         #print('#####in sinin function222')
-        uname=request.POST['username5']
-        pwd=request.POST['password25']
+        uname=request.POST['username3']
+        pwd=request.POST['password3']
         User=authenticate(username=uname,password= pwd)
         #print('user is',User)
         p=uploads.objects.filter(usernme1=User)
@@ -44,8 +55,8 @@ def signin(request):
             #print('******sinin function5555555')
             return render(request,'inside.html',{'fname':User,'p':p})
         else:
-            #print('#####in sinin function4444')
-            messages.error(request,'wron cred')
+            print('#####in sinin function4444')
+            messages.info(request,'wrong password')
             return redirect('signind')
     #y=uploads.objects.all()    
     #print('in sinin function2')

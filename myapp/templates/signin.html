@@ -15,12 +15,17 @@
     <form action="/signi" method="post" >
         {% csrf_token %}
         <!-- <label for="">Username</label> -->
-        <input type="text" class="input-box" id="username5" name="username5" placeholder="username" required>
+        <input type="text" class="input-box" id="username3" name="username3" placeholder="username" required>
         <br>
         <!-- <label for="">password</label> -->
         <div>
         <input type="password" class="input-box" id="password3" name="password3" placeholder="password" required>
         <span style="position: absolute; left: 820px; top: 207px;"><i class="far fa-eye" id="togglePassword3" onclick="toggle(id)"></i></span>
+            <div style="position:relative ;  text-align: left; color: red; font-weight: bold;">
+            {%for message in messages%}
+            {{message}}
+            {%endfor%}    
+            </div>
         </div>
         <br>
         <button type="submit" class="signupbutton">submit</button>

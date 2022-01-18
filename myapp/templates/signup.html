@@ -17,31 +17,31 @@
     <form action="/signu" method="post" onsubmit="return checkpwd()">
         {% csrf_token %}
         <!-- <label for="">Username</label> -->
-        <input type="text" class="input-box" id="username" name="username" {%if username %} value="{{username}}" {%else%} placeholder="enter username" {%endif%} required>
+        
+        <input type="text" class="input-box" id="username" name="username" {%if username %} value="{{username}}" {%else%} placeholder="enter username" {%endif%}  required>   
         <br>
         <!-- <label for="">firstname</label> -->
-        <input type="text" id="firstname" class="input-box" name="firstname" {%if username %} value="{{firstname}}" {%else%} placeholder="enter firstname" {%endif%} required>
+        <input type="text" id="firstname" class="input-box" name="firstname"  {%if firstname %} value="{{firstname}}" {%else%} placeholder="enter firstname" {%endif%} required>
         <br>
         <!-- <label for="">lastname</label> -->
-        <input type="text" id="lastname" name="lastname" class="input-box" {%if username %} value="{{lastname}}" {%else%} placeholder="enter lastname" {%endif%} required>
+        <input type="text" id="lastname" name="lastname" class="input-box" {%if lastname %} value="{{lastname}}" {%else%} placeholder="enter lastname" {%endif%} required>
         <br>
         <!-- <label for="">email</label> -->
-        <input type="email" id="email" class="input-box" name="email" {%if username %} value="{{email}}" {%else%} placeholder="enter email" {%endif%} required>
+        <input type="email" id="email" class="input-box" name="email"   {%if email %} value="{{email}}" {%else%} placeholder="enter email" {%endif%}  required>    
         <br>
         <!-- <label for="">Password</label> -->
-        <div>
-        <input type="password" id="password1" class="input-box" name="password1" placeholder="enter passwordwer" required>
+        <input type="password" id="password1" class="input-box" name="password1" placeholder="enter password" required>
         <span style="position: absolute; left: 820px; top: 465px;"><i class="far fa-eye" id="togglePassword1" onclick="toggle(id)"></i></span>
-        </div>
         <br>
         <!-- <label for="">confirm password</label> -->
-        <div>
-        <input type="password" id="password2" class="input-box" name="password2" placeholder="re-enter password" required>
-        <span style="position: absolute; left: 820px; top: 541px;"><i class="far fa-eye" id="togglePassword2" onclick="toggle(id)"></i></span>
-        </div>
+        <input style="position: relative; top: -20px;" type="password" id="password2" class="input-box" name="password2" placeholder="re-enter password" required>
+        <span style="position: absolute; left: 820px; top: 521px;"><i class="far fa-eye" id="togglePassword2" onclick="toggle(id)"></i></span>
         <br>
-        <span id="error-mess" class="error-mess"></span> <br>
-        <button type="submit" onclick="return checkpwd()" class="signupbutton">submit</button>
+        <button style="position: relative; top: -40px;" type="submit" onclick="return checkpwd()" class="signupbutton">submit</button>
+        {%for message in messages%}
+        <p style="position: relative; top: -35px; color: red; font-weight: bold;">{{message}}</p>
+        {%endfor%}
+        <span style="position: relative; top: -20px;" id="error-mess" class="error-mess"></span>
         <p>alredy have an account? <a href="signi">signin</a> </p>
     </form>
    

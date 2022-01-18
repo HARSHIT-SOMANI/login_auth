@@ -19,3 +19,15 @@ function checkpwd(){
         return false;
     }
 }
+function checktype(){
+    var filepath=document.getElementById("myfile1").value;
+    var filetype=filepath.split('.')[filepath.split('.').length-1]
+    console.log('filetype2 is',filetype)
+    if(filetype!='json'){
+        console.log('not json');
+        document.getElementById("error-mess").innerHTML="Please upload a json file";                
+        return false;}
+    else{
+        console.log('json');
+        return true;}
+    }

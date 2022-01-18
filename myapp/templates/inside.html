@@ -7,30 +7,7 @@
     <title>Document</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css'%}">
-    <!-- <link rel="stylesheet" href="https://cdn.database.net/1.10.12/css/jquery.dataTables.min.css"> -->
-    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
-    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
-            $("#mytable").DataTable({
-                "pagingType":"full_numbers"
-            });
-        });
-    </script> -->
-    <script>
-        function checktype(){
-            var filepath=document.getElementById("myfile1").value;
-            var filetype=filepath.split('.')[filepath.split('.').length-1]
-            console.log('filetype2 is',filetype)
-            if(filetype!='json'){
-                console.log('not json');
-                document.getElementById("error-mess").innerHTML="Please upload a json file";                
-                return false;}
-            else{
-                console.log('json');
-                return true;}
-            }
-    </script>
+    <script src="{% static 'frontend.js'%}"></script>
 </head>
 
 <body class="inside">
