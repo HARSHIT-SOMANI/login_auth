@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <!-- <link rel="stylesheet" href="https://cdn.database.net/1.10.12/css/jquery.dataTables.min.css"> -->
+    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#mytable").DataTable({
+                "pagingType":"full_numbers"
+            });
+        });
+    </script> -->
+    <script>
+        function checktype(){
+            var filepath=document.getElementById("myfile1").value;
+            var filetype=filepath.split('.')[filepath.split('.').length-1]
+            console.log('filetype2 is',filetype)
+            if(filetype!='json'){
+                console.log('not json');
+                document.getElementById("error-mess").innerHTML="Please upload a json file";                
+                return false;}
+            else{
+                console.log('json');
+                return true;}
+            }
+    </script>
+</head>
+
+<body class="inside">
+   <p> Welcome {{fname}} </p>
+    <form action="/fileu" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="hidden" value="{{fname}}" name="username">
+        <input type="file" id="myfile1" name="myfile1" >
+        <span id="error-mess" class="error-mess" ></span>
+        <button type="submit" onclick="return checktype()">submit</button>
+    </form>
+    <div style="margin-left: 1200px; margin-top: 0px; ">
+    <button style=" font-size: 30px;"><a href="signo">logout</a></button>
+    </div>
+    {%if p%}
+    <form action="/deletedb" method="post">
+        {% csrf_token %}
+        <input type="hidden" value="{{fname}}" name="username">
+        <button type="submit" >delete the entries</button>
+    </form> 
+    {%endif%}
+    {%if p%}
+    <table style="width:100%" id="mytable" class="content-table" >
+        <thead> 
+        <tr>
+            
+          <th style="width:5%; font-weight: bold;">USERID</th>
+          <th style="width:5%; font-weight: bold;">ID</th>
+          <th style="width:20%; font-weight: bold;">TITLE</th>
+          <th style="width:70%; font-weight: bold;">BODY</th>
+        </tr>
+        </thead>
+        <tbody>
+        {%for content in p%}
+        <tr>
+          <td style="width:5%">{{content.userid}}</td>
+          <td style="width:5%">{{content.ide}}</td>
+          <td style="width:20%">{{content.title}}</td>
+          <td style="width:70%">{{content.body}}</td>
+        </tr>
+        {%endfor%}
+        </tbody> 
+      </table>
+    {%endif%}
+    
+</body>
+</html>

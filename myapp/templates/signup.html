@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'style.css'%}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <script src="{% static 'frontend.js'%}"></script>
+</head>
+                                                    
+<body style="background-color: grey ;" >
+    <div class="signupform">
+        <h1>signup form</h1>
+    <form action="/signu" method="post" onsubmit="return checkpwd()">
+        {% csrf_token %}
+        <!-- <label for="">Username</label> -->
+        <input type="text" class="input-box" id="username" name="username" {%if username %} value="{{username}}" {%else%} placeholder="enter username" {%endif%} required>
+        <br>
+        <!-- <label for="">firstname</label> -->
+        <input type="text" id="firstname" class="input-box" name="firstname" {%if username %} value="{{firstname}}" {%else%} placeholder="enter firstname" {%endif%} required>
+        <br>
+        <!-- <label for="">lastname</label> -->
+        <input type="text" id="lastname" name="lastname" class="input-box" {%if username %} value="{{lastname}}" {%else%} placeholder="enter lastname" {%endif%} required>
+        <br>
+        <!-- <label for="">email</label> -->
+        <input type="email" id="email" class="input-box" name="email" {%if username %} value="{{email}}" {%else%} placeholder="enter email" {%endif%} required>
+        <br>
+        <!-- <label for="">Password</label> -->
+        <div>
+        <input type="password" id="password1" class="input-box" name="password1" placeholder="enter passwordwer" required>
+        <span style="position: absolute; left: 540px; top: 421px;"><i class="far fa-eye" id="togglePassword1" onclick="toggle(id)"></i></span>
+        </div>
+        <br>
+        <!-- <label for="">confirm password</label> -->
+        <div>
+        <input type="password" id="password2" class="input-box" name="password2" placeholder="re-enter password" required>
+        <span style="position: absolute; left: 540px; top: 495px;"><i class="far fa-eye" id="togglePassword2" onclick="toggle(id)"></i></span>
+        </div>
+        <br>
+        <span id="error-mess" class="error-mess"></span> <br>
+        <button type="submit" onclick="return checkpwd()" class="signupbutton">submit</button>
+        <p>alredy have an account? <a href="signi">signin</a> </p>
+    </form>
+   
+    </div>    
+
+</body>
+</html>
