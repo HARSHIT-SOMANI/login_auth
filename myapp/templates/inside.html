@@ -12,7 +12,10 @@
   </head>
 
 <body class="inside">
-   <p> Welcome {{fname}} </p>
+  <div style="width: 100%; height: auto; background-color: black;" >
+
+    <p style="background-color: orange; width: 300px; height: auto;"> Welcome {{fname}} </p>
+  </div>
     <form action="/fileu" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="hidden" value="{{fname}}" name="username">

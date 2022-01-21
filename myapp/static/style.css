@@ -114,7 +114,7 @@
     .content-table tbody tr:nth-of-type(even){
         font-weight: bold;
         color: #009879;
-        background-color: #f3f3f3;
+        background-color: #add8e6;
     }
     .content-table tbody tr:nth-of-type(odd){
         background-color: white;
