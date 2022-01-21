@@ -8,7 +8,8 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css'%}">
     <script src="{% static 'frontend.js'%}"></script>
-</head>
+    
+  </head>
 
 <body class="inside">
    <p> Welcome {{fname}} </p>
@@ -20,17 +21,19 @@
         <button type="submit" onclick="return checktype()">submit</button>
     </form>
     <div style="margin-left: 1200px; margin-top: 0px; ">
-    <button style=" font-size: 30px;"><a href="signo">logout</a></button>
+    <button style=" font-size: 30px;" ><a href="signo">logout</a></button>
     </div>
     {%if p%}
     <form action="/deletedb" method="post">
         {% csrf_token %}
         <input type="hidden" value="{{fname}}" name="username">
-        <button type="submit" >delete the entries</button>
+        <button type="submit">delete the entries</button>
     </form> 
     {%endif%}
     {%if p%}
-    <table style="width:100%" id="mytable" class="content-table" >
+    <table style="width:100%" id="mytable" class="content-table" > 
+    
+  
         <thead> 
         <tr>
             

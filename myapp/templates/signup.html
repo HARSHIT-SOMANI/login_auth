@@ -11,40 +11,44 @@
     <script src="{% static 'frontend.js'%}"></script>
 </head>
                                                     
-<body style="background-color: grey ;" >
-    <div class="signupform">
-        <h1>signup form</h1>
-    <form action="/signu" method="post" onsubmit="return checkpwd()">
+<body class="upformbody">
+    <div class="sinupform">
+    <form action="/signu" method="post" class="form" onsubmit="return checkpwd()" >
         {% csrf_token %}
-        <!-- <label for="">Username</label> -->
-        
-        <input type="text" class="input-box" id="username" name="username" {%if username %} value="{{username}}" {%else%} placeholder="enter username" {%endif%}  required>   
-        <br>
-        <!-- <label for="">firstname</label> -->
-        <input type="text" id="firstname" class="input-box" name="firstname"  {%if firstname %} value="{{firstname}}" {%else%} placeholder="enter firstname" {%endif%} required>
-        <br>
-        <!-- <label for="">lastname</label> -->
-        <input type="text" id="lastname" name="lastname" class="input-box" {%if lastname %} value="{{lastname}}" {%else%} placeholder="enter lastname" {%endif%} required>
-        <br>
-        <!-- <label for="">email</label> -->
-        <input type="email" id="email" class="input-box" name="email"   {%if email %} value="{{email}}" {%else%} placeholder="enter email" {%endif%}  required>    
-        <br>
-        <!-- <label for="">Password</label> -->
-        <input type="password" id="password1" class="input-box" name="password1" placeholder="enter password" required>
-        <span style="position: absolute; left: 820px; top: 465px;"><i class="far fa-eye" id="togglePassword1" onclick="toggle(id)"></i></span>
-        <br>
-        <!-- <label for="">confirm password</label> -->
-        <input style="position: relative; top: -20px;" type="password" id="password2" class="input-box" name="password2" placeholder="re-enter password" required>
-        <span style="position: absolute; left: 820px; top: 521px;"><i class="far fa-eye" id="togglePassword2" onclick="toggle(id)"></i></span>
-        <br>
-        <button style="position: relative; top: -40px;" type="submit" onclick="return checkpwd()" class="signupbutton">submit</button>
-        {%for message in messages%}
-        <p style="position: relative; top: -35px; color: red; font-weight: bold;">{{message}}</p>
+        <h1 class="title">signup form</h1>
+        <div class="inputcontainer">   
+        <input type="text" class="input" id="username" name="username" {%if username %} value="{{username}}" {%else%} placeholder="Enter username" {%endif%}  required>   
+        <!-- <label class="label">Username</label>     -->
+        </div>
+        <div class="inputcontainer">
+        <input type="text" id="firstname" class="input" name="firstname"  {%if firstname %} value="{{firstname}}" {%else%} placeholder="Enter firstname" {%endif%} required>
+        <!-- <label class="label">firstname</label> -->
+        </div>
+        <div class="inputcontainer">
+        <input type="text" id="lastname" name="lastname" class="input" {%if lastname %} value="{{lastname}}" {%else%} placeholder="Enter lastname" {%endif%} required>
+        <!-- <label class="label">lastname</label> -->
+        </div>
+        <div class="inputcontainer">
+        <input type="email" id="email" class="input" name="email"   {%if email %} value="{{email}}" {%else%} placeholder="Enter Email" {%endif%}  required>
+        <!-- <label class="label">email</label>     -->
+        </div>    
+        <div class="inputcontainer">
+        <input type="password" id="password1" class="input" name="password1" placeholder="Enter password" required>
+        <!-- <label class="label">Password</label> -->
+        <span ><i class="far fa-eye" id="togglePassword1" style="position: relative; left: -40px;" onclick="toggle(id)"></i></span>
+        </div>
+        <div class="inputcontainer">
+        <input type="password" id="password2" class="input" name="password2" placeholder="Re-enter password" required>
+        <!-- <label class="label">confirm password</label> -->
+        <span ><i class="far fa-eye" id="togglePassword2" style="position: relative; left: -40px;" onclick="toggle(id)"></i></span>
+        </div>
+        <button onclick="return checkpwd()" class="submitBtn">submit</button>
+        {%for message in messages %}
+        <p class="error-mess" style="position: relative; top: -50px;">{{message}}</p>
         {%endfor%}
-        <span style="position: relative; top: -20px;" id="error-mess" class="error-mess"></span>
-        <p>alredy have an account? <a href="signi">signin</a> </p>
+        <span  id="error-mess" style="position: relative; top: -50px;" class="error-mess"></span>
+        <p>already have an account? <a href="signi">signin</a> </p>
     </form>
-   
     </div>    
 
 </body>

@@ -10,17 +10,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <script src="{% static 'frontend.js'%}"></script>
 </head>
-<body>
-    <div class="signupform">
-    <form action="/signi" method="post" >
+<body class="upformbody">
+    <div class="sinupform">
+    <form action="/signi" method="post" class="form" >
         {% csrf_token %}
+        <h1 class="title">signin form</h1>
         <!-- <label for="">Username</label> -->
-        <input type="text" class="input-box" id="username3" name="username3" placeholder="username" required>
-        <br>
+        <div class="inputcontainer">
+        <input type="text" class="input" id="username3" name="username3" placeholder="username" required>
+        </div>
         <!-- <label for="">password</label> -->
-        <div>
-        <input type="password" class="input-box" id="password3" name="password3" placeholder="password" required>
-        <span style="position: absolute; left: 820px; top: 207px;"><i class="far fa-eye" id="togglePassword3" onclick="toggle(id)"></i></span>
+        <div class="inputcontainer">
+        <input type="password" class="input" id="password3" name="password3" placeholder="password" required>
+        <span style="position: relative; left:-40px;"><i class="far fa-eye" id="togglePassword3" onclick="toggle(id)"></i></span>
             <div style="position:relative ;  text-align: left; color: red; font-weight: bold;">
             {%for message in messages%}
             {{message}}
@@ -28,9 +30,10 @@
             </div>
         </div>
         <br>
-        <button type="submit" class="signupbutton">submit</button>
+        <button type="submit" class="submitBtn">submit</button>
+        <p>dont have  an account? <a href="signu">signup</a> </p>
     </form>
-    <p>dont have  an account? <a href="signu">signup</a> </p>
+    
 </div>
 
 </body>

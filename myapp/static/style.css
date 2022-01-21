@@ -1,51 +1,89 @@
-.signupform{
-    width: 300px;
-    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.3);
-    background: seagreen;
-    padding: 20px;
-    margin: 8% auto 0;
-    text-align: center;
-    border: 1px solid #1c8adb;
+.upformbody{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color:white;
+    font-family: "lato",sans-serif;
 }
-.signupform h1{
-color: #1c8adb;
-margin-bottom: 30px;
+.sinupform{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    
 }
+.form{
+    background-color:grey ;
+    width: 400px;
+    border-radius: 8px;
+    padding: 20px 40px;
+    box-shadow: 0 10px 25px rgba(92, 99, 105, 0.2);
+    /* background-color: yellowgreen; */
+}
+.inputcontainer {
+    position: relative;
+    height: 45px;
+    width: 90%;
+    margin-bottom: 17px;
+  }
+  .input {
+    border-radius: 20px;
+    font-size: medium;
+    height: 100%;
+    width: 80%;
+    border: 1px solid #DADCE0;
+  }
+ 
+.title{
+    font-size: 50px;
+    margin-bottom: 50px;
+}
+.submitBtn {
+    display: block;
+    margin-left: auto;
+    padding: 15px 30px;
+    border: none;
+    background-color: purple;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 30px;
+  }
+  
+  .submitBtn:hover {
+    background-color: #9867C5;
+    transform: translateY(-2px);
+  }
+
 .inside{
-    background-color: #1c8adb;
+    background-color:grey ;
 }
 .inside p{
     font: bold;
     font-size: 30px;
 }
-.upload-submit{
-    background-color: brown;
-} 
 .indexbutton:hover{
     background-color: cornsilk;
-
 }
-.input-box{
-    border-radius: 20px;
-    padding: 10px;
-    margin: 10px 0;
-    width: 100%;
-    border: 1px solid #999;
-    outline: none;
-    align-self: center;
-}
-.signupbutton{
-    color: #000;
-    width: 100%;
-    padding: 10px;
-    border-radius: 20px;
-    font-size: 15px;
-    margin: 10px 0;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font:bold ;
-}
+.input:focus + .label {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+    color: purple;
+  }
+  .input:focus {
+    border: 2px solid purple;
+  }
+  .input:not(:placeholder-shown)+ .label {
+    top: -7px;
+    left: 3px;
+    z-index: 10;
+    font-size: 14px;
+    font-weight: 600;
+  }
 .error-mess{ 
     font-weight: bold;
     color: red;
@@ -58,6 +96,7 @@ margin-bottom: 30px;
     border-radius: 5px 5px 0 0;
     overflow: hidden;
     box-shadow: 0 0 20px rgb(0, 0, 0, 0.15);
+    
 }
 .content-table thead tr{
     background-color: #009879;
