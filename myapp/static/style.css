@@ -158,22 +158,37 @@ header ul li a:hover{
   color: #f09053;
 }
 .logout{
-    display: inline-block; color: #f09053;text-transform: uppercase;
+    display: inline-block;
+    text-transform: uppercase;
     position: relative;
-    right: 100px;
-    top: -100px;
+    text-decoration: none;
+    width: 180px;
+    height: 60px;
+    line-height: 60px;
+    background-color: #07f3b8;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 50px;
+    transition: all ease 0.5s;
+}
+.logoutu{
+    display: inline-block; color: #f09053;
+    text-transform: uppercase;
+    position: relative;
     text-decoration: none;
     width: 180px;
         height: 60px;
         line-height: 60px;
-        background-color: #f09053;
+        background-color: red;
         color: #fff;
         text-align: center;
         font-size: 18px;
         border-radius: 50px;
         transition: all ease 0.5s;
 }
-.logout:hover{ background-color: #07f3b8;}
+.logout:hover,.logoutu:hover{ background-color: #f09053;
+    cursor: pointer;}
 header ul li a.btn{
   display: inline-block;
         width: 180px;

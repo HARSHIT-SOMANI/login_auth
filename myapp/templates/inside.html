@@ -23,26 +23,22 @@
         <input type="hidden" value="{{fname}}" name="username">
         <input type="file" id="myfile1" name="myfile1" style="color: white;" >
         <span id="error-mess" class="error-mess" ></span>
-        <button type="submit" onclick="return checktype()">submit</button>
+        <button class="logout" type="submit" onclick="return checktype()">submit</button>
     </form>
     <div style="margin-left: 1200px; margin-top: 0px; ">
-    
-    <a class="logout" href="signo">logout</a>
+    <a  style="width: 180px; right: 100px;top: -100px;" class="logout" href="signo">logout</a>
     </div>
     {%if p%}
     <form action="/deletedb" method="post">
         {% csrf_token %}
         <input type="hidden" value="{{fname}}" name="username">
-        <button type="submit">delete the entries</button>
+        <button class="logoutu" style="width: 250px; " type="submit">Delete the entries</button>
     </form> 
     {%endif%}
     {%if p%}
     <table style="width:100%" id="mytable" class="content-table" > 
-    
-  
         <thead> 
         <tr>
-            
           <th style="width:5%; font-weight: bold;">USERID</th>
           <th style="width:5%; font-weight: bold;">ID</th>
           <th style="width:20%; font-weight: bold;">TITLE</th>
@@ -60,6 +56,10 @@
         {%endfor%}
         </tbody> 
       </table>
+    {%else%}
+    <div class="wave">
+      <img src="{% static 'images/wave.svg'%}">
+    </div>
     {%endif%}
     
 </body>
