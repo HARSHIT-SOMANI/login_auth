@@ -8,23 +8,26 @@
     {% load static %}
     <link rel="stylesheet" href="{% static 'style.css'%}">
     <script src="{% static 'frontend.js'%}"></script>
-    
+    <style>
+      body{background-color: #1E1F31;}
+    </style>
   </head>
 
-<body class="inside">
-  <div style="width: 100%; height: auto; background-color: black;" >
-
-    <p style="background-color: orange; width: 300px; height: auto;"> Welcome {{fname}} </p>
+<body >
+  <div style="width: 40%; height: auto; padding-bottom: 50px; " class="contenth">
+    
+  <h style="color: white;"> Welcome {{fname}} </h>
   </div>
     <form action="/fileu" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <input type="hidden" value="{{fname}}" name="username">
-        <input type="file" id="myfile1" name="myfile1" >
+        <input type="file" id="myfile1" name="myfile1" style="color: white;" >
         <span id="error-mess" class="error-mess" ></span>
         <button type="submit" onclick="return checktype()">submit</button>
     </form>
     <div style="margin-left: 1200px; margin-top: 0px; ">
-    <button style=" font-size: 30px;" ><a href="signo">logout</a></button>
+    
+    <a class="logout" href="signo">logout</a>
     </div>
     {%if p%}
     <form action="/deletedb" method="post">
