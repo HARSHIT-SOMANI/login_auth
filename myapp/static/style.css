@@ -124,3 +124,79 @@
         
         border-bottom: 2px solid #009879;
     }
+
+    .wrapper{
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+    }
+    header{
+        padding: 50px 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+   ul{text-align: right;
+    align-items:flex-end;
+    padding-left: 700px;
+
+}
+    header ul li{
+
+        list-style: none;
+        display: inline-block;
+        margin: 0 15px;
+    }
+    header ul li a{
+        color: #aba9b4;
+        text-transform: uppercase;
+        text-decoration: none;
+        letter-spacing: 1px;
+        transition: all ease 0.5s;
+    }
+    header ul li a:hover{
+        color: #f09053;
+    }
+header ul li a:hover{
+  color: #f09053;
+}
+header ul li a.btn{
+  display: inline-block;
+        width: 180px;
+        height: 60px;
+        line-height: 60px;
+        background-color: #f09053;
+        color: #fff;
+        text-align: center;
+        font-size: 18px;
+        border-radius: 50px;
+        transition: all ease 0.5s;
+    }
+    header ul li a.btn:hover{
+        background-color: #615c59;
+    }
+    .wave{
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        line-height: 0;
+    }
+    
+    .content{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 50px 100px 0;
+        width: 600px;
+       
+    }
+    .content h{
+      font-size: 40px;
+      color: white;
+    }
+    .indextext{
+      padding-top: 20px ;
+      color: white;
+      font-size: 20px;
+    }
