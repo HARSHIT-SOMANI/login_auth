@@ -9,9 +9,21 @@
     <link rel="stylesheet" href="{% static 'style.css'%}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
     <script src="{% static 'frontend.js'%}"></script>
+    <style>
+        *{
+                margin: 0;
+                outline: none;
+                box-sizing: border-box;
+            }        
+            body{
+                font-family: Space Grotesk;
+                background-color: #1E1F31;
+                overflow-x: hidden;
+            }
+      </style>
 </head>
-<body class="upformbody">
-    <div class="sinupform">
+<body >
+    <div class="wrapper">
     <form action="/signi" method="post" class="form" >
         {% csrf_token %}
         <h1 class="title">signin form</h1>
@@ -33,7 +45,9 @@
         <button type="submit" class="submitBtn">submit</button>
         <p>dont have  an account? <a href="signu">signup</a> </p>
     </form>
-    
+    <div class="wave">
+        <img src="{% static 'images/wave.svg'%}">
+      </div>
 </div>
 
 </body>
